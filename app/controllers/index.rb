@@ -12,7 +12,7 @@ redirect '/'
 
 end
 
-put '/try_a_put' do
+put '/edit/sea_lions' do
 
 "HOORAY!"
 
@@ -20,9 +20,7 @@ redirect '/'
 
 end
 
-delete '/try_a_delete' do
-
-puts params
+delete '/delete/sea_lions' do
 
 redirect '/'
 
