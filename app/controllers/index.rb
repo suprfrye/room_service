@@ -6,28 +6,28 @@ get '/' do
 
 end
 
-get '/sea_lions' do
-  Sealion.all.to_json
+get '/sealions' do
+  SeaLion.all.to_json
 end
 
-get '/sea_lions/:id'
- Sealion.find(params[:id]).to_json
+get '/sealions/:id' do
+ SeaLion.find(params[:id]).to_json
 end
 
-post '/sea_lions' do
-sealion = Sealion.create(params)
-redirect '/sea_lions'
+post '/sealions' do
+sealion = SeaLion.create(params)
+redirect '/sealions'
 
 end
 
-put '/sea_lions/:id' do
-sealion = Sealion.find(params[:id])
+put '/sealions/:id' do
+sealion = SeaLion.find(params[:id])
 sealion.update_attribute(params)
-redirect '/sea_lions'
+redirect '/sealions'
 end
 
-delete '/sea_lions/:id' do
-  sealion =Sealion.find(params[:id])
+delete '/sealions/:id' do
+  sealion =SeaLion.find(params[:id])
   sealion.destroy
-  redirect '/sea_lions'
+  redirect '/sealions'
 end
