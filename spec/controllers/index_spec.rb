@@ -8,7 +8,7 @@ describe 'Index Controller' do
 
     it 'Should verify that the response is a redirect' do
     post '/sea_lions'
-    expect(last_response).to be_redirect
+    expect(last_response.body).to be_a(String)
     follow_redirect!
     expect(last_response).to be_ok
   end

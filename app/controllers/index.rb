@@ -11,7 +11,8 @@ get '/sealions' do
 end
 
 get '/sealions/:id' do
- SeaLion.find(params[:id]).to_json
+sealion = SeaLion.find(params[:id])
+sealion.to_json
 end
 
 post '/sealions' do
