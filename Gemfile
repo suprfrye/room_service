@@ -1,10 +1,5 @@
 require 'erb'
 
-configure do
- set :root, APP_ROOT.to_path
- set :views, File.join(APP_ROOT,"app","views")
-end
-
 source 'https://rubygems.org'
 gem 'sinatra'
 
