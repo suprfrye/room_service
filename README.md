@@ -1,6 +1,9 @@
-## Build your own Lightsaber ##
+# room_service
+Phase 2 Week 1 Group Project
 
-Nightly updates will be posted to the [wiki](../../../phase-2-guide/wiki/lightsaber).  Check there nightly for your homework.
+Hoa Nguyen
+Eveanandi Butler
+Tara Frye
+Max Rater
 
--  Work work work
--  Nightly after completion of work - create a pull request from YOUR FORK to OUR master branch
+We are making a room scheduler for the DB Space
