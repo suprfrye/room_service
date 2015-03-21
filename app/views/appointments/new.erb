@@ -22,7 +22,10 @@
     <% @groups.each do |group| %>
     <option value="<%= group.name %>"><%= group.name %></option>
     <% end %>
-  </select><br>
+  </select>
+  <form action="/users/:id/groups/new" method="get">
+    <input type="submit" value="Create Group"/>
+  </form><br>
 
   <input type="submit" value="Add Appointment">
 </form>
