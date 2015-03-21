@@ -1,3 +1,4 @@
-        class UserGroup < ActiveRecord::Base
-          # Remember to create a migration!
-        end
+class UserGroup < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :group
+end

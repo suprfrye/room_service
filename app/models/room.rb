@@ -1,3 +1,3 @@
-        class Room < ActiveRecord::Base
-          # Remember to create a migration!
-        end
+class Room < ActiveRecord::Base
+  has_many :appointments
+end

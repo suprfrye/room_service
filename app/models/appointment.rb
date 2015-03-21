@@ -1,3 +1,4 @@
-        class Appointment < ActiveRecord::Base
-          # Remember to create a migration!
-        end
+class Appointment < ActiveRecord::Base
+  belongs_to :room
+  belongs_to :group
+end
