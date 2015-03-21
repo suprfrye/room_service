@@ -1,0 +1,28 @@
+<h2>Appointment</h2>
+<form action="/users/:id/appointments/new" method="post">
+  <!-- Room dropdown -->
+  <label for="room">Room</label><br>
+  <select id="room" name="room">
+    <% @rooms.each do |room| %>
+    <option value="<%= room.name %>"><%= room.name %></option>
+    <% end %>
+  </select><br>
+  <!-- Date  -->
+  <label for="date">Date</label><br>
+  <input id="date" type="date" name="date"/><br>
+  <!-- Start time -->
+  <label for="start">Start Time</label><br>
+  <input type="time" name="start_datetime"/><br>
+  <!-- End time -->
+  <label for="end">End Time</label><br>
+  <input type="time" name="end_datetime"/><br>
+  <!-- Group dropdown -->
+  <label for="group">Group</label><br>
+  <select id="group" name="group">
+    <% @groups.each do |group| %>
+    <option value="<%= group.name %>"><%= group.name %></option>
+    <% end %>
+  </select><br>
+
+  <input type="submit" value="Add Appointment">
+</form>
