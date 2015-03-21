@@ -7,15 +7,20 @@
 
   <h3>Create Your New Account<h3>
 
-  <div id="new_user_form">
-    <form action= '/users' method='post'>
+  <div id="new_user_input">
+    <form action= '/users' method='post' id='new_user'>
       <input type='text' placeholder='First Name' name='first_name' /> <br>
       <input type='text' placeholder='Last Name' name='last_name' /> <br>
       <input type='text' placeholder='email address' name='email_address' /> <br>
-      <input type='text' placeholder='student or staff' name='position' /> <br>
       <input type='password' placeholder='password' name='password' /> <br> <br>
+       <select name='position' form="new_user">
+          <option value="Student">Student</option>
+          <option value="Staff">Staff</option>
+       </select>
       <input type='submit' value="Create New User" />
     </form>
+
+
   </div>
 
 </body>

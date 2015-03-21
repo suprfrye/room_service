@@ -26,7 +26,8 @@ User.create([{first_name: 'Hoa',
               position: 'Student'}])
 
 Group.create(name: 'METH',
-             users: [User.find_by(email_address: 'hoathenguyen85@gmail.com'),
+              user_id: User.find_by(email_address: 'ebutler90@gmail.com').id,
+              users: [User.find_by(email_address: 'hoathenguyen85@gmail.com'),
                      User.find_by(email_address: 'suprfrye@gmail.com'),
                      User.find_by(email_address: 'ebutler90@gmail.com'),
                      User.find_by(email_address: 'maxrater@gmail.com')])
