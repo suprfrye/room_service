@@ -1,6 +1,19 @@
 <div id="left">
-  <
+  <% @rooms.each do |room| %>
+  <div class="room">
+    <h2><%= room.name %></h2>
+    <ul>
+      <% room.appointments.each do |appt| %>
+      <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime %> to <%= appt.end_datetime %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 </div>
 <div id="right">
-  <h2>Dev Bootcam</h2>
+  <h2>Dev Bootcamp Room Service</h2>
+  <p>Login using your email address and password. Checkout upcoming appointments. Reserve a room for your group.</p>
+  <form action="/users/login" method="get">
+    <input type="submit" value="Login"/>
+  </form>
 </div>
