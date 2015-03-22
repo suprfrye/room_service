@@ -1,0 +1,13 @@
+<div class="container">
+<h1>DBC Room Service</h1>
+</div>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <li>
+      <a href= "/rooms/<%=room.id%>"><%=
+      room.name %></a>
+    </li>
+  <% end %>
+</ul>
+
