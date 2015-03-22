@@ -1,4 +1,4 @@
-<div class="container" id="index-container">
+<!-- <div class="container" id="index-container">
   <div class="row">
     <div class="col-md-7">
       <% @rooms.each do |room| %>
@@ -20,12 +20,35 @@
     </div>
   </div>
 </div>
+ -->
 
-
-<!-- <div class="container-full">
+<!-- <div class="container-full ">
   <div class="row">
     <div class="col-md-7">Hello</div>
     <div class="col-md-5">Hello</div>
   </div>
 </div>
  -->
+
+<div class="container" id="index-container">
+  <div class="row">
+    <div class="col-md-9">
+      <% @rooms.each do |room| %>
+      <div class="col-md-2">
+        <h2><%= room.name %></h2>
+        <ul>
+          <% room.appointments.each do |appt| %>
+          <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime %> to <%= appt.end_datetime %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <p>Login using your email address and password. Checkout upcoming appointments. Reserve a room for your group.</p>
+      <form action="/users/login" method="get">
+        <button class="label label-danger" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
