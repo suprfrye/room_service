@@ -27,7 +27,7 @@
   <%end%>
 </ul>
 
-<form action="/users/:id/appointments/new" method="get">
+<form action="/users/<%= @current_user.id %>/appointments/new" method="get">
   <input type="submit" value="Reserve Room">
 </form>
 

@@ -1,19 +1,31 @@
-<div id="left">
-  <% @rooms.each do |room| %>
-  <div class="room">
-    <h2><%= room.name %></h2>
-    <ul>
-      <% room.appointments.each do |appt| %>
-      <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime %> to <%= appt.end_datetime %></li>
+<div class="container" id="index-container">
+  <div class="row">
+    <div class="col-md-7">
+      <% @rooms.each do |room| %>
+      <div class="room">
+        <h2><%= room.name %></h2>
+        <ul>
+          <% room.appointments.each do |appt| %>
+          <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime %> to <%= appt.end_datetime %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
-    </ul>
+    </div>
+    <div class="col-md-5">
+      <p>Login using your email address and password. Checkout upcoming appointments. Reserve a room for your group.</p>
+      <form action="/users/login" method="get">
+        <input type="submit" value="Login"/>
+      </form>
+    </div>
   </div>
-  <% end %>
 </div>
-<div id="right">
-  <h2>Dev Bootcamp Room Service</h2>
-  <p>Login using your email address and password. Checkout upcoming appointments. Reserve a room for your group.</p>
-  <form action="/users/login" method="get">
-    <input type="submit" value="Login"/>
-  </form>
+
+
+<!-- <div class="container-full">
+  <div class="row">
+    <div class="col-md-7">Hello</div>
+    <div class="col-md-5">Hello</div>
+  </div>
 </div>
+ -->
