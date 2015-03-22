@@ -4,10 +4,32 @@
 </head>
 <body>
 
-<h2><%= @current_user.first_name %> <%= @current_user.last_name %> </h2>
-<% @current_user
+<h2><%= @current_user.first_name %> <%= @current_user.last_name %> 's Home Page </h2>
 
 
+<ul>
+  <% @current_user.groups.each do |group| %>
+    <li> Group Name: <%= group.name %>
+      <ol>
+        <% group.appointments.each do |appointment| %>
+        <li> Room: <%= Room.find(appointment.room.id).name %> Start Time: <%= appointment.start_datetime %> End Time: <%= appointment.end_datetime %>
+          <form action="/users/:id/appointments/:appt_id/edit" method="get">
+            <input type="submit" value="Edit">
+          </form>
+          <form action="/users/:id/appointments/:appt_id/delete" method="post">
+            <input type="hidden" name"_method" value="delete">
+            <input type="submit" value="Delete">
+          </form>
+         </li>
+        <%end%>
+      </ol>
+    </li>
+  <%end%>
+</ul>
+
+<form action="/users/:id/appointments/new" method="get">
+  <input type="submit" value="Reserve Room">
+</form>
 
 
 

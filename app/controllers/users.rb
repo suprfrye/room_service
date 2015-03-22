@@ -4,6 +4,10 @@ get '/users/new' do
   erb :"users/new"
 end
 
+get '/users/login' do
+  erb :"users/login"
+end
+
 get '/users/:id' do
   # @current_user = User.find_by(id: params[:id])
   # "#{@current_user.first_name}"
@@ -31,5 +35,15 @@ post '/users' do
 end
 
 
+
+
 post '/users/login' do
+   @user_login = User.find_by(email_address: params[:email_address])
+
+   if @user_login.password == params[:password]
+    redirect "/users/#{@user_login.id}"
+  else
+    redirect "/users/login"
+  end
+
 end
