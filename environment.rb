@@ -29,11 +29,4 @@ Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
  Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 
 require APP_ROOT.join('database')
-<<<<<<< HEAD
 
-configure do
- set :root, APP_ROOT.to_path
- set :views, File.join(APP_ROOT,"app","views")
-end
-=======
->>>>>>> c7b448679bdf93c69bc757e974d707fcd99001fe
