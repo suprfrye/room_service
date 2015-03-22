@@ -1,0 +1,44 @@
+<h2>Appointment</h2>
+<form action="/users/:id/appointments/:appt_id/edit" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <!-- Room dropdown -->
+  <label for="room">Room</label><br>
+  <select id="room" name="room">
+    <% cur_room = Room.find(@appt.room_id).name %>
+    <option value="<%= cur_room %>"><%= cur_room %></option>
+    <% @rooms.each do |room| %>
+    <option value="<%= room.name %>"><%= room.name %></option>
+    <% end %>
+  </select><br>
+
+  <!-- Date  -->
+  <label for="date">Date</label><br>
+  <input id="date" type="date" name="date" placeholder="<%= @appt.start_datetime.to_date %>"/><br>
+
+  <!-- Start time -->
+  <label for="start">Start Time</label><br>
+  <input type="time" name="start_datetime"/><br>
+
+  <!-- End time -->
+  <label for="end">End Time</label><br>
+  <input type="time" name="end_datetime"/><br>
+
+  <!-- Group dropdown -->
+  <label for="group">Group</label><br>
+  <select id="group" name="group">
+    <% cur_group = Group.find(@appt.group_id).name %>
+    <option value="<%= cur_group %>"><%= cur_group %></option>
+    <% @groups.each do |group| %>
+    <option value="<%= group.name %>"><%= group.name %></option>
+    <% end %>
+  </select>
+
+  <!-- Create Group -->
+  <form action="/users/:id/groups/new" method="get">
+    <input type="submit" value="Create Group"/>
+  </form><br>
+
+  <!-- Submit Form -->
+  <input type="submit" value="Update Appointment">
+</form>
