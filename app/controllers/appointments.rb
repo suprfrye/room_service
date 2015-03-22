@@ -14,7 +14,7 @@ post '/users/:id/appointments/new' do
   if new_appt.save
     redirect "/users/#{params[:id]}"
   else
-    [404, "Invalid Appointment Entry"]
+    redirect "/users/#{params[:id]}/appointments/new"
   end
 end
 
@@ -32,6 +32,6 @@ put '/users/:id/appointments/:appt_id/edit' do
   if cur_appt.save
     redirect "/users/#{params[:id]}"
   else
-    [404, "Invalid Appointment Entry"]
+    redirect "/users/#{params[:id]}/appointments/#{params[:appt_id]}/edit"
   end
 end
