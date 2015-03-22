@@ -1,13 +1,17 @@
-<p> "MAKE A GROUP" </p>
+<p> "Edit Group" </p>
 
-<ul>
-  <% @group.users.each do |user| %>
-    <li>
-      <a href= "/groups/new<%=user.id%>"><%=
-      user.first_name %></a>
-    </li>
-  <% end %>
-</ul>
+<form action='/users/<%=params[:id]%>/groups/<%=params[:group_id]%>/edit' method='post'>
 
-  <input type='submit' value='Edit Group' />
+  <input type='hidden' name='_method' value='put' />
+
+  <input type='text' placeholder='Edit Group Name' name='name' value='<%=@group.name%>' />
+
+
+  <ol>
+  <% @list.each do |user| %>
+   <input type= 'checkbox' name = '<%= user.id %>' <%= @group.users.pluck(:id).include?(user.id) ? 'checked' : '' %> > <%= user.first_name%>
+  <%end%>
+  </ol>
+  <input type="submit" value= "Submit">
+
 </form>
