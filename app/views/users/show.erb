@@ -18,7 +18,7 @@
           </form>
           <form method="post" action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/delete">
             <input type="hidden" name="_method" value="delete">
-            <button type="submit">Delete</button>
+            <button class="label label-danger" type="submit">Delete</button>
           </form>
          </li>
         <%end%>
