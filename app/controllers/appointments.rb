@@ -35,3 +35,9 @@ put '/users/:id/appointments/:appt_id/edit' do
     redirect "/users/#{params[:id]}/appointments/#{params[:appt_id]}/edit"
   end
 end
+
+delete '/users/:id/appointments/:appt_id/delete' do
+  cur_appt = Appointment.find(params[:appt_id])
+  curr_appt.destroy
+  redirect "/users/#{params[:id]}/"
+end
