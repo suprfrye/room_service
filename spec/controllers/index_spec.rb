@@ -1,29 +1,10 @@
 require_relative '../spec_helper'
 describe 'Index Controller' do
+  describe 'index.erb' do
+    pending "should have all rooms showing and all schedule in that room"
 
-    it 'Should get the / route' do
-    get '/'
-    expect(last_response).to be_ok
-  end
+    pending "should only show new scehdule, none in the past"
 
-    it 'Should verify that the response is a redirect' do
-    post '/sea_lions'
-    expect(last_response.body).to be_a(String)
-    follow_redirect!
-    expect(last_response).to be_ok
+    pending "has login button"
   end
-
-    it 'Should verify redirect' do
-    put '/edit/sea_lions'
-    expect(last_response).to be_redirect
-    follow_redirect!
-    expect(last_response).to be_ok
-  end
-    it 'Should verify a delete route' do
-    delete '/delete/sea_lions'
-    expect(last_response).to be_redirect
-    follow_redirect!
-    expect(last_response).to be_ok
-  end
-
 end

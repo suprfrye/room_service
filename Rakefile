@@ -1,14 +1,19 @@
 require ::File.expand_path('../environment', __FILE__)
 
 require 'rake'
+# THIS IS NEEDED FOR THE spec TASK TO WORK!!!
+require 'rspec/core/rake_task'
 
 desc 'Start IRB with application environment loaded'
 task "console" do
     exec "irb -r./environment"
 end
 
+task :default  => :console
+
 namespace :generate do
   task :model do
+    desc "Create an empty model , e.g., rake generate:model NAME=User"
     unless ENV.has_key?('NAME')
       raise "Must specificy model name, e.g., rake generate:model NAME=User"
     end
@@ -24,13 +29,14 @@ namespace :generate do
     puts "Creating #{model_path}"
     File.open(model_path, 'w+') do |f|
       f.write(<<-EOF)
-        class #{model_name} < ActiveRecord::Base
-          # Remember to create a migration!
-        end
+class #{model_name} < ActiveRecord::Base
+  # Remember to create a migration!
+end
       EOF
     end
   end
   task :migration do
+    desc "Create an empty migration , e.g., rake generate:spec:model NAME=user"
     unless ENV.has_key?('NAME')
       raise "Must specificy migration name, e.g., rake generate:migration NAME=create_tasks"
     end
@@ -46,11 +52,63 @@ namespace :generate do
     puts "Creating #{path}"
     File.open(path, 'w+') do |f|
       f.write(<<-EOF)
-        class #{name} < ActiveRecord::Migration
-          def change
-          end
-        end
+class #{name} < ActiveRecord::Migration
+  def change
+  end
+end
       EOF
+    end
+  end
+
+  namespace :spec do
+    desc "Create an empty model spec in spec, e.g., rake generate:spec:model NAME=user"
+    task :model do
+      unless ENV.has_key?('NAME')
+        raise "Must specificy migration name, e.g., rake generate:spec:model NAME=user"
+      end
+
+      name     = ENV['NAME'].camelize
+      filename = "%s_spec.rb" % ENV['NAME'].underscore
+      path     = APP_ROOT.join('spec', 'models', filename)
+
+      if File.exist?(path)
+        raise "ERROR: File '#{path}' already exists"
+      end
+
+      puts "Creating #{path}"
+      File.open(path, 'w+') do |f|
+        f.write(<<-EOF)
+require_relative '../spec_helper'
+describe #{name} do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+        EOF
+      end
+    end
+
+    desc "Create an empty controller spec in spec, e.g., rake generate:spec:controller NAME=users"
+    task :controller do
+      unless ENV.has_key?('NAME')
+        raise "Must specificy migration name, e.g., rake generate:spec:controller NAME=users"
+      end
+
+      name     = ENV['NAME'].camelize
+      filename = "%s_spec.rb" % ENV['NAME'].underscore
+      path     = APP_ROOT.join('spec', 'controllers', filename)
+
+      if File.exist?(path)
+        raise "ERROR: File '#{path}' already exists"
+      end
+
+      puts "Creating #{path}"
+      File.open(path, 'w+') do |f|
+        f.write(<<-EOF)
+require_relative '../spec_helper'
+describe #{name} do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+        EOF
+      end
     end
   end
 end
@@ -94,6 +152,17 @@ namespace :db do
     desc "Migrate test database"
     task :prepare do
       system "rake db:migrate RACK_ENV=test"
+    end
+  end
+end
+
+namespace :spec do
+  desc 'run spec'
+  RSpec::Core::RakeTask.new(:test)
+  task 'run' do
+    test_env = {'RACK_ENV' => 'test'}
+    ['db:create', 'db:migrate', 'db:seed', 'spec:test', 'db:drop'].each do |step|
+      system(test_env, "bundle exec rake #{step}")
     end
   end
 end
