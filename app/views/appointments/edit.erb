@@ -1,5 +1,5 @@
 <h2>Appointment</h2>
-<form action="/users/:id/appointments/:appt_id/edit" method="post">
+<form action="/users/<%= params[:id] %>/appointments/<%= params[:appt_id] %>/edit" method="post">
   <input type="hidden" name="_method" value="put">
 
   <!-- Room dropdown -->
@@ -10,7 +10,10 @@
     <% @rooms.each do |room| %>
     <option value="<%= room.name %>"><%= room.name %></option>
     <% end %>
-  </select><br>
+  </select>
+
+  <!-- Link to Rooms Schedule -->
+  <a href="/users/:id/rooms">See Schedule</a><br>
 
   <!-- Date  -->
   <label for="date">Date</label><br>
@@ -34,10 +37,8 @@
     <% end %>
   </select>
 
-  <!-- Create Group -->
- <!--  <form action="/users/:id/groups/new" method="get">
-    <input type="submit" value="Create Group"/>
-  </form><br> -->
+  <!-- Link to Create Group -->
+  <a href="/users/:id/groups/new">Create Group</a><br>
 
   <!-- Submit Form -->
   <input type="submit" value="Update Appointment">

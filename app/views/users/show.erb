@@ -16,9 +16,9 @@
           <form action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/edit" method="get">
             <input type="submit" value="Edit">
           </form>
-          <form action="/users/:id/appointments/:appt_id/delete" method="post">
-            <input type="hidden" name"_method" value="delete">
-            <input type="submit" value="Delete">
+          <form method="post" action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/delete">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Delete</button>
           </form>
          </li>
         <%end%>

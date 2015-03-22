@@ -39,8 +39,12 @@ put '/users/:id/appointments/:appt_id/edit' do
   end
 end
 
-delete '/users/:id/appointments/:appt_id/delete' do
-  cur_appt = Appointment.find(params[:appt_id])
-  curr_appt.destroy
-  redirect "/users/#{params[:id]}/"
+# Use POST route because Sinatra does not recognize DELETE route
+# MA found a requirement for using _method that involved Rack:: something or other
+# or defining it in the class that inherits from Sinatra::Base
+delete '/users/:id/appointments/:appt_id/delete' do |id, appt_id|
+  p params
+  @cur_appt = Appointment.find(params[:appt_id])
+  @cur_appt.destroy
+  redirect "/users/#{params[:id]}"
 end
