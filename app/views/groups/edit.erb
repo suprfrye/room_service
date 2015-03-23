@@ -1,0 +1,17 @@
+<p> "Edit Group" </p>
+
+<form action='/users/<%=params[:id]%>/groups/<%=params[:group_id]%>/edit' method='post'>
+
+  <input type='hidden' name='_method' value='put' />
+
+  <input type='text' placeholder='Edit Group Name' name='name' value='<%=@group.name%>' />
+
+
+  <ol>
+  <% @list.each do |user| %>
+   <input type= 'checkbox' name = '<%= user.id %>' <%= @group.users.pluck(:id).include?(user.id) ? 'checked' : '' %> > <%= user.first_name%>
+  <%end%>
+  </ol>
+  <input type="submit" value= "Submit">
+
+</form>

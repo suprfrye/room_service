@@ -1,5 +1,7 @@
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __FILE__)
 
+require 'erb'
+
 require 'sinatra'
 
 require 'bundler/setup'
@@ -27,3 +29,4 @@ Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
  Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 
 require APP_ROOT.join('database')
+
