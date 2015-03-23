@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'shotgun'
 
-get '/rooms' do
+get '/users/:id/rooms' do
 @rooms = Room.all
 @time = Room.find_by(id: params[:group_id])
 

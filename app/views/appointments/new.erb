@@ -9,7 +9,7 @@
   </select>
 
   <!-- Link to Rooms Schedule -->
-  <a href="/users/:id/rooms">See Schedule</a><br>
+  <a href="/users/<%= params[:id] %>/rooms"  target="_blank">See Schedule</a><br>
 
   <!-- Date  -->
   <label for="date">Date</label><br>
@@ -32,7 +32,7 @@
   </select>
 
   <!-- Link to Create Group -->
-  <a href="/users/:id/groups/new">Create Group</a><br>
+  <a href="/users/<%= params[:id] %>/groups/new">Create Group</a><br>
 
   <button class="label label-danger" type="submit">Add Appointment</button>
 

@@ -1,14 +1,9 @@
-<div class="container">
-<h1>DBC Room Service</h1>
-</div>
 <% @rooms.each do |room| %>
-<h2>
-<%= room.name %>
-<h2>
+<h2> <%= room.name %> <h2>
 <ul>
-<% room.appointments.each do |appt| %>
-<li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime.strftime("%b %d %l:%M %p") %> to <%= appt.end_datetime.strftime("%l:%M %p") %></li>
-<% end %>
+  <% room.appointments.each do |appt| %>
+  <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime.strftime("%b %d %l:%M %p") %> to <%= appt.end_datetime.strftime("%l:%M %p") %></li>
+    <% end %>
+  </ul>
  <% end %>
-</ul>
-
+<form></form>
