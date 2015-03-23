@@ -1,4 +1,4 @@
-<p> "Make Group" </p>
+<h2>Create Group</h2>
 
 <form action='/users/<%=params[:id]%>/groups/new' method='post'>
 
@@ -10,7 +10,7 @@
    <input type= 'checkbox' name = '<%= user.id %>' > <%= user.first_name%>
   <%end%>
   </ol>
-  <input type="submit" value= "Submit">
+  <button class="label label-danger" type="submit">Submit</button>
 
 </form>
 

@@ -39,7 +39,7 @@ post '/users/:id/groups/new' do
   group.users = list_user_id.keys.map! { |id| User.find_by(id: id) }
   group.save
 
-redirect "/users/#{user_id}/appointments/new"
+  redirect "/users/#{user_id}/appointments/new"
 
 end
 
