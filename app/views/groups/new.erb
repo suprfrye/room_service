@@ -1,0 +1,17 @@
+<p> "Make Group" </p>
+
+<form action='/users/<%=params[:id]%>/groups/new' method='post'>
+
+  <input type='text' placeholder='Group Name' name='name' />
+
+
+  <ol>
+  <% @list.each do |user| %>
+   <input type= 'checkbox' name = '<%= user.id %>' > <%= user.first_name%>
+  <%end%>
+  </ol>
+  <input type="submit" value= "Submit">
+
+</form>
+
+
