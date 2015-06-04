@@ -11,3 +11,7 @@ body {
 .panel {
   border: solid 1px #555;
 }
+
+.panel h2 {
+  color: #999;
+}
