@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
-
 <h2><%= @current_user.first_name %> <%= @current_user.last_name %> 's Home Page </h2>
-
 
 <ul>
   <% @current_user.groups.each do |group| %>
@@ -31,10 +24,3 @@
   <button class="label label-danger" type="submit">Reserve Room</button>
 </form>
 
-
-
-</body>
-
-</html>
-
-<!--Issue: Cannot figure out how to get the groups that the user is a part of. Calling .groups on a user object is returning an empty array. There may be something wrong with the associations  -->
