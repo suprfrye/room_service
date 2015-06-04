@@ -9,6 +9,11 @@ body {
   padding-bottom: 1%;
 }
 
+a.navbar-brand {
+  font-size: 1.75em;
+  color: #555;
+}
+
 .panel {
   border: solid 1px #555;
 }
