@@ -2,3 +2,8 @@ body {
   background-color: #00bfc6;
   color: #555;
 }
+
+.navbar-static-top {
+  background-color: white;
+  padding-bottom: 1%;
+}
