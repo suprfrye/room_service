@@ -19,3 +19,7 @@ body {
 .panel > .panel-heading {
   background-color: #555;
 }
+
+#description {
+  line-height: 2em;
+}
