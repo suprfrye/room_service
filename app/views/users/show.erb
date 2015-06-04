@@ -1,26 +1,29 @@
-<h2><%= @current_user.first_name %> <%= @current_user.last_name %> 's Home Page </h2>
+<h2><i class="glyphicon glyphicon-calendar"></i> <%= @current_user.first_name %>'s Schedule</h2>
 
-<ul>
+<hr>
+
+<div class="well">
   <% @current_user.groups.each do |group| %>
-    <li> Group Name: <%= group.name %>
-      <ol>
-        <% group.appointments.each do |appointment| %>
-        <li> Room: <%= Room.find(appointment.room.id).name %> Start Time: <%= appointment.start_datetime.strftime("%b %d %l:%M %p") %> End Time: <%= appointment.end_datetime.strftime("%l:%M %p") %>
-          <form action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/edit" method="get">
-            <button class="label label-danger" type="submit">Edit</button>
-          </form>
-          <form method="post" action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/delete">
-            <input type="hidden" name="_method" value="delete">
-            <button class="label label-danger" type="submit">Delete</button>
-          </form>
-         </li>
-        <%end%>
-      </ol>
-    </li>
+    <h3> Group: <%= group.name %> </h3>
+    <ul class="list-unstyled">
+      <% group.appointments.each do |appointment| %>
+      <li class="user-schedule"> Room: <%= Room.find(appointment.room.id).name %> Start Time: <%= appointment.start_datetime.strftime("%b %d %l:%M %p") %> End Time: <%= appointment.end_datetime.strftime("%l:%M %p") %>
+        <form action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/edit" method="get">
+          <button class="btn btn-default modify-btn" type="submit">Edit</button>
+        </form>
+        <form method="post" action="/users/<%= @current_user.id %>/appointments/<%= appointment.id %>/delete">
+          <input type="hidden" name="_method" value="delete">
+          <button class="btn btn-default modify-btn" type="submit">Delete</button>
+        </form>
+      </li>
+      <%end%>
+    </ul>
   <%end%>
-</ul>
+</div>
+
+<hr>
 
 <form action="/users/<%= @current_user.id %>/appointments/new" method="get">
-  <button class="label label-danger" type="submit">Reserve Room</button>
+  <button class="btn btn-default" type="submit">Reserve Room</button>
 </form>
 
