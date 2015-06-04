@@ -1,15 +1,21 @@
 <h2>Appointment</h2>
-<form action="/users/<%= params[:id] %>/appointments/new" method="post">
-  <!-- Room dropdown -->
-  <label for="room">Room</label><br>
-  <select id="room" name="room">
-    <% @rooms.each do |room| %>
-    <option value="<%= room.name %>"><%= room.name %></option>
-    <% end %>
-  </select>
+<form class="form-horizontal" action="/users/<%= params[:id] %>/appointments/new" method="post">
 
-  <!-- Link to Rooms Schedule -->
-  <a href="/users/<%= params[:id] %>/rooms"  target="_blank">See Schedule</a><br>
+  <!-- Room dropdown -->
+  <div class="form-group">
+    <label for="room" class="control-label col-sm-2">Room</label>
+    <div class="col-sm-6">
+      <select id="room" class="form-control" name="room">
+        <% @rooms.each do |room| %>
+        <option value="<%= room.name %>"><%= room.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <!-- Link to Rooms Schedule -->
+    <div class="col-sm-2">
+      <a href="/users/<%= params[:id] %>/rooms"  target="_blank">See Schedule</a>
+    </div>
+  </div>
 
   <!-- Date  -->
   <label for="date">Date</label><br>
