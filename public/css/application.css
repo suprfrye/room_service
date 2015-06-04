@@ -23,3 +23,9 @@ body {
 #description {
   line-height: 2em;
 }
+
+.btn {
+  background-color: #eac100;
+  font-size: 1.5em;
+  padding: auto 10px;
+}
