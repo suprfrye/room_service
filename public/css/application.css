@@ -7,3 +7,7 @@ body {
   background-color: white;
   padding-bottom: 1%;
 }
+
+.panel {
+  border: solid 1px #555;
+}
