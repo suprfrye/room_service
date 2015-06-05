@@ -1,11 +1,22 @@
 <h2 class="col-sm-offset-1"><i class="glyphicon glyphicon-user"></i> Create Group</h2>
 <hr>
+<form class="form-horizontal" action='/users/<%=params[:id]%>/groups/new' method='post'>
+  <div class="form-group">
+    <label for="group-name" class="control-label col-sm-2 col-sm-offset-1">Group Name</label>
+    <div class="col-sm-6">
+      <input id="group-name" class="form-control"type='text' placeholder='Group Name' name='name'/>
+    </div>
+  </div>
 
-  <ol>
   <% @list.each do |user| %>
-   <input type= 'checkbox' name = '<%= user.id %>' > <%= user.first_name%>
+  <div class="form-group">
+    <label for="<%= user.first_name %>" class="control-label col-sm-2 col-sm-offset-1"><%= user.first_name%></label>
+    <div class="col-sm-6">
+      <input id="<%= user.first_name %>" type="checkbox" class="form-control" name ="<%= user.id %>">
+    </div>
+  </div>
   <%end%>
-  </ol>
+
   <button class="label label-danger" type="submit">Submit</button>
 
 </form>
