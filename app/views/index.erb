@@ -1,25 +1,14 @@
-<div class="container" id="index-container">
-  <div class="row">
-    <div class="col-md-7">
-      <% @rooms.each do |room| %>
-      <div class="room">
-        <h2><%= room.name %></h2>
-        <ul>
-          <% room.appointments.each do |appt| %>
-          <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime.strftime("%b %d %l:%M %p") %> to <%= appt.end_datetime.strftime("%l:%M %p") %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
-    </div>
+<div class="col-sm-6">
+  <h2><i class="glyphicon glyphicon-calendar"></i> Schedule</h2>
+  <%= erb :"rooms/_index", :layout => false %>
+</div>
 
-    <div class="col-md-5">
-      <p>Login using your email address and password. Checkout upcoming appointments. Reserve a room for your group.</p>
-      <form action="/users/login" method="get">
-        <button class="label label-danger" type="submit">Login</button>
-      </form>
-    </div>
-  </div>
+<div class="col-md-5 col-md-offset-1">
+  <h2>Welcome to DBC Room Service</h2>
+  <h3 id="description"><i class="glyphicon glyphicon-ok"></i> Checkout upcoming appointments. <br><i class="glyphicon glyphicon-ok"></i> Reserve a room for your group.<br> <small>Login using your email address and password.</small></h3>
+  <form action="/users/login" method="get">
+    <button class="btn btn-default" type="submit">Login</button>
+  </form>
 </div>
 
 

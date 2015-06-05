@@ -2,22 +2,28 @@
 <html>
   <head>
     <title>DBC Room Service</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="/css/normalize.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
      <link rel="stylesheet" type="text/css" href="/css/application.css">
-   <!--   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'> -->
-   <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
-
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <header>
-      <div class="page-header">
-        <a href="/"><img src="http://devbootcamp.com/assets/images/dbc-logo.png" alt="DBC footprint"></a>
-        <h1>DevBootCamp's Room Service </h1>
-        <h4><a href="/users/new">Sign Up</a></h4>
+    <div class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar navbar-brand" href="/">
+            <span>
+              <img src="http://devbootcamp.com/assets/img/devbootcamp-logo.png" alt="DBC footprint">
+            </span>
+            Room Service
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users/new">Sign Me Up!</a></li>
+        </ul>
       </div>
-    </header>
-    <div>
+    </div>
+    <div class="container">
       <%= yield %>
     </div>
   </body>

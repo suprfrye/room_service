@@ -1,9 +1,0 @@
-<% @rooms.each do |room| %>
-<h2> <%= room.name %> <h2>
-<ul>
-  <% room.appointments.each do |appt| %>
-  <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime.strftime("%b %d %l:%M %p") %> to <%= appt.end_datetime.strftime("%l:%M %p") %></li>
-    <% end %>
-  </ul>
- <% end %>
-<form></form>

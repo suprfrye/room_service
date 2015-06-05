@@ -1,39 +1,67 @@
-<h2>Appointment</h2>
-<form action="/users/<%= params[:id] %>/appointments/new" method="post">
-  <!-- Room dropdown -->
-  <label for="room">Room</label><br>
-  <select id="room" name="room">
-    <% @rooms.each do |room| %>
-    <option value="<%= room.name %>"><%= room.name %></option>
-    <% end %>
-  </select>
+<h2 class="col-sm-offset-1"><i class="glyphicon glyphicon-time"></i> Appointment</h2>
+<hr>
+<form class="form-horizontal" action="/users/<%= params[:id] %>/appointments/new" method="post">
 
-  <!-- Link to Rooms Schedule -->
-  <a href="/users/<%= params[:id] %>/rooms"  target="_blank">See Schedule</a><br>
+  <!-- Room dropdown -->
+  <div class="form-group">
+    <label for="room" class="control-label col-sm-2 col-sm-offset-1">Room</label>
+    <div class="col-sm-6">
+      <select id="room" class="form-control" name="room">
+        <% @rooms.each do |room| %>
+        <option value="<%= room.name %>"><%= room.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <!-- Link to Rooms Schedule -->
+    <div class="col-sm-2">
+      <a href="/users/<%= params[:id] %>/rooms" target="_blank">See Schedule</a>
+    </div>
+  </div>
 
   <!-- Date  -->
-  <label for="date">Date</label><br>
-  <input id="date" type="date" name="date"/><br>
+  <div class="form-group">
+    <label for="date" class="control-label col-sm-2 col-sm-offset-1">Date</label>
+    <div class="col-sm-6">
+      <input id="date" class="form-control" type="date" name="date"/>
+    </div>
+  </div>
 
   <!-- Start time -->
-  <label for="start">Start Time</label><br>
-  <input type="time" name="start_datetime"/><br>
+  <div class="form-group">
+    <label for="start" class="control-label col-sm-2 col-sm-offset-1">Start Time</label>
+    <div class="col-sm-6">
+      <input id="start" class="form-control" type="time" name="start_datetime"/>
+    </div>
+  </div>
 
   <!-- End time -->
-  <label for="end">End Time</label><br>
-  <input type="time" name="end_datetime"/><br>
+  <div class="form-group">
+    <label for="end" class="control-label col-sm-2 col-sm-offset-1">End Time</label>
+    <div class="col-sm-6">
+      <input id="end" class="form-control" type="time" name="end_datetime"/>
+    </div>
+  </div>
 
   <!-- Group dropdown -->
-  <label for="group">Group</label><br>
-  <select id="group" name="group">
-    <% @groups.each do |group| %>
-    <option value="<%= group.name %>"><%= group.name %></option>
-    <% end %>
-  </select>
+  <div class="form-group">
+    <label for="group" class="control-label col-sm-2 col-sm-offset-1">Group</label>
+    <div class="col-sm-6">
+      <select id="group" class="form-control" name="group">
+      <% @groups.each do |group| %>
+      <option value="<%= group.name %>"><%= group.name %></option>
+      <% end %>
+      </select>
+    </div>
+    <div class="col-sm-2">
+      <!-- Link to Create Group -->
+      <a href="/users/<%= params[:id] %>/groups/new">Create Group</a>
+    </div>
+  </div>
 
-  <!-- Link to Create Group -->
-  <a href="/users/<%= params[:id] %>/groups/new">Create Group</a><br>
-
-  <button class="label label-danger" type="submit">Add Appointment</button>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <button class="btn btn-default" type="submit">Add Appointment</button>
+    </div>
+  </div>
 
 </form>

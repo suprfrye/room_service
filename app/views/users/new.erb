@@ -1,27 +1,48 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>New User</title>
-</head>
-<body> -->
+<h3 class='col-sm-offset-1'>Create Your New Account<h3>
 
-  <h3>Create Your New Account<h3>
+<form class='form-horizontal' action= '/users' method='post' id='new_user'>
 
-  <div id="new_user_input">
-    <form action= '/users' method='post' id='new_user'>
-      <input type='text' placeholder='First Name' name='first_name' /> <br>
-      <input type='text' placeholder='Last Name' name='last_name' /> <br>
-      <input type='text' placeholder='email address' name='email_address' /> <br>
-      <input type='password' placeholder='password' name='password' /> <br> <br>
-       <select name='position' form="new_user">
-          <option value="Student">Student</option>
-          <option value="Staff">Staff</option>
-       </select>
-      <button class="label label-danger" type='submit'>Create New User</button>
-    </form>
+  <div class='form-group'>
+    <label for='first-name' class='control-label col-sm-2 col-sm-offset-2'>First Name</label>
+    <div class='col-sm-6'>
+      <input id='first-name' class='form-control' type='text' placeholder='First Name' name='first_name'/>
+    </div>
   </div>
 
-<!-- </body>
+  <div class='form-group'>
+    <label for='last-name' class='control-label col-sm-2 col-sm-offset-2'>Last Name</label>
+    <div class='col-sm-6'>
+      <input id='last-name' class='form-control' type='text' placeholder='Last Name' name='last_name'/>
+    </div>
+  </div>
 
-</html>
- -->
+  <div class='form-group'>
+    <label for='user-email' class='control-label col-sm-2 col-sm-offset-2'>Email</label>
+    <div class='col-sm-6'>
+      <input id='user-email' class='form-control' type='text' placeholder='Email' name='email_address'/>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <label for='user-password' class='control-label col-sm-2 col-sm-offset-2'>Password</label>
+    <div class='col-sm-6'>
+      <input id='user-password' class='form-control' type='password' placeholder='password' name='password'/>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <label for='position' class='control-label col-sm-2 col-sm-offset-2'>Position</label>
+    <div class='col-sm-6'>
+      <select id='position' class='form-control' name='position' form="new_user">
+        <option value="Student">Student</option>
+        <option value="Staff">Staff</option>
+      </select>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='col-sm-6 col-sm-offset-4'>
+      <button class="btn btn-default" type='submit'>Sign Me Up!</button>
+    </div>
+  </div>
+</form>

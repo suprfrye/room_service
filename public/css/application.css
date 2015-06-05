@@ -1,18 +1,49 @@
-/*font-family: 'Poiret One', cursive;*/
-/*font-family: 'Raleway', sans-serif;*/
-
-p {
-
+body {
+  background-color: #00bfc6;
+  color: #555;
+  font-size: 1.5em;
 }
 
-.page-header{
-  background-color: #CCCCCC;
-  font-family: 'Raleway', sans-serif;
+.navbar-static-top {
+  background-color: white;
+  padding-bottom: 1%;
 }
 
-
-
-/*.container{
-  background-color: red
+a.navbar-brand {
+  font-size: 1.75em;
+  color: #555;
 }
-*/
+
+.panel {
+  border: solid 1px #555;
+}
+
+.panel h2 {
+  color: #999;
+}
+
+.panel > .panel-heading {
+  background-color: #555;
+}
+
+#description {
+  line-height: 2em;
+}
+
+.btn {
+  background-color: #eac100;
+  font-size: 1.5em;
+  padding: auto 10px;
+}
+
+.glyphicon {
+  color: #eee;
+}
+
+.user-schedule {
+  font-size: 1.25em;
+}
+
+.modify-btn {
+  font-size: .75em;
+}

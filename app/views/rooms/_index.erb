@@ -1,0 +1,15 @@
+<% @rooms.each do |room| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title"> <%= room.name.upcase %> <h2>
+  </div>
+  <div class="panel-body">
+    <ul class="list-unstyled">
+      <% room.appointments.each do |appt| %>
+      <li><%= Group.find_by(id: appt.group_id).name %>: <%= appt.start_datetime.strftime("%b %d %l:%M %p") %> to <%= appt.end_datetime.strftime("%l:%M %p") %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+ <% end %>
+<form></form>
