@@ -42,15 +42,20 @@
   </div>
 
   <!-- Group dropdown -->
-  <label for="group">Group</label><br>
-  <select id="group" name="group">
-    <% @groups.each do |group| %>
-    <option value="<%= group.name %>"><%= group.name %></option>
-    <% end %>
-  </select>
-
-  <!-- Link to Create Group -->
-  <a href="/users/<%= params[:id] %>/groups/new">Create Group</a><br>
+  <div class="form-group">
+    <label for="group" class="control-label col-sm-2">Group</label>
+    <div class="col-sm-6">
+      <select id="group" class="form-control" name="group">
+      <% @groups.each do |group| %>
+      <option value="<%= group.name %>"><%= group.name %></option>
+      <% end %>
+      </select>
+    </div>
+    <div class="col-sm-2">
+      <!-- Link to Create Group -->
+      <a href="/users/<%= params[:id] %>/groups/new">Create Group</a>
+    </div>
+  </div>
 
   <button class="label label-danger" type="submit">Add Appointment</button>
 
