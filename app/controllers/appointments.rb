@@ -22,7 +22,6 @@ get '/users/:id/appointments/:appt_id/edit' do
   @rooms = Room.all
   @groups = User.find(params[:id]).groups
   @appt = Appointment.find(params[:appt_id])
-  puts "Paramas of Appt ID: #{params[:appt_id]}"
   erb :"/appointments/edit"
 end
 
