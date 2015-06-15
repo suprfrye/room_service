@@ -6,10 +6,8 @@ require 'erb'
 
 gem 'sinatra'
 
-group :test do
-    gem 'rspec'
-    gem 'rack-test'
-end
+gem 'rspec'
+gem 'rack-test'
 
 group :development do
     gem 'shotgun'
