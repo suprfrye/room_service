@@ -6,21 +6,16 @@ require 'erb'
 
 gem 'sinatra'
 
-# group :test do
-#     gem 'rspec'
-#     gem 'rack-test'
-# end
+group :test do
+    gem 'rspec'
+    gem 'rack-test'
+end
 
-# group :development do
-#     gem 'shotgun'
-# end
+group :development do
+    gem 'shotgun'
+end
 
-gem 'rspec'
-gem 'rack-test'
-gem 'shotgun'
 gem 'rake'
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 gem 'pg'
-
-
