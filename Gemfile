@@ -1,6 +1,7 @@
+source 'https://rubygems.org'
+
 require 'erb'
 
-source 'https://rubygems.org'
 gem 'sinatra'
 
 group :test do
@@ -8,12 +9,14 @@ group :test do
     gem 'rack-test'
 end
 
-group :development do
-    gem 'shotgun'
-end
+# group :development do
+#     gem 'shotgun'
+# end
 
+gem 'shotgun'
 gem 'rake'
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 gem 'pg'
+
 
