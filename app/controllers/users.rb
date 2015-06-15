@@ -9,8 +9,6 @@ get '/users/login' do
 end
 
 get '/users/:id' do
-  # @current_user = User.find_by(id: params[:id])
-  # "#{@current_user.first_name}"
 @current_user = User.find_by(id: params[:id])
   if @current_user
     erb :"users/show"
