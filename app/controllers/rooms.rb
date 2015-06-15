@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'shotgun'
+# require 'shotgun'
 
 get '/users/:id/rooms' do
 @rooms = Room.all

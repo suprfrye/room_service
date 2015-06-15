@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'shotgun'
+# require 'shotgun'
 
 # get '/groups' do
 # @groups = Group.all
